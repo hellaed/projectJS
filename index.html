@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Phone Book Page</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <div class="header-container">
+      <h1>Phone Book</h1>
+      <nav class="main-nav">
+        <ul class="nav-links">
+          <li><a href="#contact">Contacts</a></li>
+        </ul>
+        <input type="search" placeholder="Search People..." />
+        <img class="icon" src="./images/icons/search_icon.png" />
+        <img class="icon trash-bin" src="./images/icons/trash_icon.png" />
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="add-contact-div">
+      <button id="add-contact-button" onclick="showAddContact()">Add Contact</button>
+      <button id="delete-allContact-button">Delete All Contacts</button>
+    </div>
+
+    <div class="contacts-container">
+      <ul class="data_of_persons"></ul>
+    </div>
+
+    <div class="add-contact-container">
+      <form id="add-contact">
+        <img id="close-add-contact" class="close-button" src="./images/icons/close_icon.png" onclick="closeAddContact()" />
+        <p>Name:</p>
+        <input type="text" id="input-name" placeholder="Enter name..." required />
+        <p>Phone Number:</p>
+        <input type="tel" id="input-phone" placeholder="05X-XXXXXXX" required />
+        <p>Address:</p>
+        <input type="text" id="input-address" placeholder="EX: Dizingof St, Tel-Aviv" />
+        <p>Age:</p>
+        <input type="number" id="input-age" placeholder="1-120" />
+        <p>Image URL:</p>
+        <input type="url" id="input-img" />
+        <button type="submit" id="submit">Save</button>
+        <button type="reset" id="reset">Reset</button>
+      </form>
+    </div>
+
+    <div id="contact-info">
+      <img id="close-contact-info" class="close-button" src="./images/icons/close_icon.png" />
+      <p id="contact-info-name">Name:</p>
+      <p id="contact-info-age">Age:</p>
+      <p id="contact-info-telephone">Telephone:</p>
+      <p id="contact-info-address">Address</p>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-container">
+      <p>&copy; 2025 My Modern Website. All rights reserved.</p>
+    </div>
+  </footer>
+  <script src="js.js"></script>
+</body>
+</html>
