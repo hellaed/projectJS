@@ -5,7 +5,7 @@ const persons = [
     name: "Fatema",
     phone: "0521234567",
     email:"Fatema@gmail.com",
-    image:"./image/fatema.png"
+    image:"https://www.hfm-berlin.de/fileadmin/_processed_/b/6/csm_Fatma_Said_3__c__James_Bort_f628835199.jpg"
   }, 
   {
     name: "Ali",
@@ -22,43 +22,37 @@ const persons = [
 ]
 
 let ul = document.querySelector('.data_of_persons') //persons will be appear under ul
-function add(){
-  ul.innerHTML = "";
-persons.forEach(eperson=>{
-  const person = document.createElement('div')
-  const li = document.createElement('li')
-  let name=document.createElement('h3')
-  name.textContent=eperson.name
-  let phone = document.createElement('p')
-  phone.textContent = eperson.phone
-  let email= document.createElement('p')
-  email.textContent = eperson.email
-  const divleft = document.createElement('div')
-  divleft.appendChild(name)
-  divleft.appendChild(phone)
-  divleft.appendChild(email)
-  let image=document.createElement('img')
-  image.src=eperson.image
-  image.alt=eperson.name
-  image.className ="img-person"
-  person.appendChild(image)
-  person.appendChild(divleft)
-  person.className = "left"
-  li.appendChild(person)
-  li.appendChild(right_img.cloneNode(true));
-  ul.appendChild(li)
-})
+function add() {
+    persons.forEach((elem) => {
+        const li = document.createElement('li');
+        li.innerHTML = `
+        <p><img src="${elem.image}" id="profile_picture">    ${elem.name}</p>
+        <p class="Phone">Phone: ${elem.phone}</p>
+        <p class="Email">Email: ${elem.email}</p>
+        <p>
+        <img src="./images/icons/rename_icon.png">
+        <img src="./images/icons/trash_icon.png" onclick="deleteContact(this)">
+        <img src="./images/icons/info_icon.png"></p>`
+        ul.appendChild(li);
+    })
 }
 
+add();
 
 
 
 
 function showAddContact() {
     document.querySelector(".add-contact-container").style.display = "flex";
-    document.get
 }
+
 function closeAddContact() {
     document.querySelector(".add-contact-container").style.display = "none";
 }
+function deleteContact(element) {
+    const li = element.closest('li');
+    if (li) li.remove();
+}
+
+
 
